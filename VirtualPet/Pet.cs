@@ -14,6 +14,10 @@ namespace VirtualPet
         {
             Name = name;
         }
+        public void SetSpecies(string Cat)
+        {
+            Species = Cat;
+        }
 
         public string GetName()
         {
