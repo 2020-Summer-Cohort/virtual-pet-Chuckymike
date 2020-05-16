@@ -6,5 +6,12 @@ namespace VirtualPet
 {
     public class Pet
     {
+        public string Name { get; set; }
+
+        public void SetName(string name)
+        {
+            Name = name;
+        }
+
     }
 }
