@@ -18,6 +18,7 @@ namespace VirtualPet
             Hunger = 50;
             Boredom = 60;
             Health = 30;
+            Name = "Chloe";
 
         }
         public void SetName(string name)
