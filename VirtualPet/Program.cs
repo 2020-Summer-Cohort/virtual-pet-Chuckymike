@@ -8,6 +8,7 @@ namespace VirtualPet
         static void Main(string[] args)
         {
             Pet newPet = new Pet();
+            
 
             Console.WriteLine("Hello! Welcome to Virtual Pets");
             Console.WriteLine("\nWhat would you like to name it?");
