@@ -14,17 +14,25 @@ namespace VirtualPet
             Console.WriteLine("\nWhat would you like to name it?");
             string petName = Console.ReadLine();
 
+            newPet.SetName(petName);
+
+            Console.WriteLine("What type of animal do you want?");
+            string petSpecies = Console.ReadLine();
+
+            newPet.SetSpecies(petSpecies);
+
             bool continuePlayingWithPet = true;
             do
             {
+                newPet.Tick();
 
                 Console.WriteLine("\nWhat would you like to do?");
-                Console.WriteLine($"1. Feed {petName}");
-                Console.WriteLine($"2. Play with {petName}");
-                Console.WriteLine($"3. Take {petName} to doctor");
-                Console.WriteLine($"4. See {petName} hunger");
-                Console.WriteLine($"5. See {petName} bordeom");
-                Console.WriteLine($"6. See {petName} health");
+                Console.WriteLine($"1. Feed {newPet.GetName()}");
+                Console.WriteLine($"2. Play with {newPet.GetName()}");
+                Console.WriteLine($"3. Take {newPet.GetName()} to doctor");
+                Console.WriteLine($"4. See {newPet.GetName()} hunger");
+                Console.WriteLine($"5. See {newPet.GetName()} bordeom");
+                Console.WriteLine($"6. See {newPet.GetName()} health");
                 Console.WriteLine("7. Exit virtual pet");
 
                 string userInput = Console.ReadLine();

@@ -25,9 +25,9 @@ namespace VirtualPet
         {
             Name = name;
         }
-        public void SetSpecies(string Cat)
+        public void SetSpecies(string species)
         {
-            Species = Cat;
+            Species = species;
         }
         public int GetHunger()
         {
