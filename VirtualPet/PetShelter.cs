@@ -13,6 +13,11 @@ namespace VirtualPet
             listOfPets.Add(pet);
             Console.WriteLine("You've added a pet to the shelter");
         }
+        
+        public List<Pet> GetPetList()
+        {
+            return listOfPets;
+        }
     }
 
 }

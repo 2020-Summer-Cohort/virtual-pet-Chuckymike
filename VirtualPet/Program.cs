@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace VirtualPet
@@ -30,7 +31,8 @@ namespace VirtualPet
                 Console.WriteLine($"5. See {newPet.GetName()} bordeom");
                 Console.WriteLine($"6. See {newPet.GetName()} health");
                 Console.WriteLine("7. Add another pet to shelter");
-                Console.WriteLine("8. Exit virtual pet");
+                Console.WriteLine("8. See name and status of all pets");
+                Console.WriteLine("9. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -82,6 +84,15 @@ namespace VirtualPet
                             break;
                         }
                     case "8":
+                        {
+                            List<Pet> listOfPets = petShelter.GetPetList();
+                            foreach (Pet pet in listOfPets)
+                            {
+                                Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
+                            }   
+                            break;
+                        }
+                    case "9":
                         {
                             Console.WriteLine("Thanks for playing Virtual Pet");
                             continuePlayingWithPet = false;
