@@ -81,5 +81,17 @@ namespace VirtualPet
             Boredom += 5;
             Health -= 5;
         }
+        public void CreatePet()
+        {
+            Console.WriteLine("\nWhat would you like to name it?");
+            string petName = Console.ReadLine();
+
+            SetName(petName);
+
+            Console.WriteLine("What type of animal do you want?");
+            string petSpecies = Console.ReadLine();
+
+            SetSpecies(petSpecies);
+        }
     }
 }

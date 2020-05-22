@@ -8,18 +8,14 @@ namespace VirtualPet
         static void Main(string[] args)
         {
             Pet newPet = new Pet();
+            PetShelter petShelter = new PetShelter();
             
 
             Console.WriteLine("Hello! Welcome to Virtual Pets");
-            Console.WriteLine("\nWhat would you like to name it?");
-            string petName = Console.ReadLine();
+            newPet.CreatePet();
 
-            newPet.SetName(petName);
+            petShelter.AddPetToShelter(newPet);
 
-            Console.WriteLine("What type of animal do you want?");
-            string petSpecies = Console.ReadLine();
-
-            newPet.SetSpecies(petSpecies);
 
             bool continuePlayingWithPet = true;
             do
@@ -33,7 +29,8 @@ namespace VirtualPet
                 Console.WriteLine($"4. See {newPet.GetName()} hunger");
                 Console.WriteLine($"5. See {newPet.GetName()} bordeom");
                 Console.WriteLine($"6. See {newPet.GetName()} health");
-                Console.WriteLine("7. Exit virtual pet");
+                Console.WriteLine("7. Add another pet to shelter");
+                Console.WriteLine("8. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -61,22 +58,30 @@ namespace VirtualPet
                     case "4":
                         {
                             int currentHunger = newPet.GetHunger();
-                            Console.WriteLine($"{petName} hunger is {currentHunger}");
+                            Console.WriteLine($"{newPet.GetName()} hunger is {currentHunger}");
                             break;
                         }
                     case "5":
                         {
                             int currentBordom = newPet.GetBoredom();
-                            Console.WriteLine($"{petName} boredom is {currentBordom}");
+                            Console.WriteLine($"{newPet.GetName()} boredom is {currentBordom}");
                             break;
                         }
                     case "6":
                         {
                             int currentHealth = newPet.GetHealth();
-                            Console.WriteLine($"{petName} health is {currentHealth}");
+                            Console.WriteLine($"{newPet.GetName()} health is {currentHealth}");
                             break;
                         }
                     case "7":
+                        {
+                            newPet = new Pet();
+                            newPet.CreatePet();
+
+                            petShelter.AddPetToShelter(newPet);
+                            break;
+                        }
+                    case "8":
                         {
                             Console.WriteLine("Thanks for playing Virtual Pet");
                             continuePlayingWithPet = false;
