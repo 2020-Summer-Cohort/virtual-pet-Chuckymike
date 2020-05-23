@@ -18,6 +18,28 @@ namespace VirtualPet
         {
             return listOfPets;
         }
+        public void FeedAllPets()
+        {
+            foreach (Pet pet in listOfPets)
+            {
+                pet.Feed();
+            }
+            
+        }
+        public void AllPetsSeeDoctor()
+        {
+            foreach (Pet pet in listOfPets)
+            {
+                pet.SeeDoctor();
+            }
+        }
+        public void AllPetsPlay()
+        {
+            foreach (Pet pet in listOfPets)
+            {
+                pet.Play();
+            }
+        }
     }
 
 }
