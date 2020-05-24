@@ -85,6 +85,12 @@ namespace VirtualPet.Tests
             Assert.Equal(40, testPet.GetHealth());//GetHealth and Health are same
             Assert.Equal(40, testPet2.GetHealth());
         }
+        [Fact]
+        public void SelectPet_Should_Allow_User_To_Select_Pet()
+        {
+            testPetShelter.SelectPetFromShelter(testPet);
+            testPetShelter.SelectPetFromShelter(testPet2);
+        }
 
     }
     

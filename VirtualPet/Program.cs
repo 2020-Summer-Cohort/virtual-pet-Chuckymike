@@ -10,6 +10,7 @@ namespace VirtualPet
         {
             Pet newPet = new Pet();
             PetShelter petShelter = new PetShelter();
+            List<Pet> listOfPets = petShelter.GetPetList();
             
 
             Console.WriteLine("Hello! Welcome to Virtual Pets");
@@ -32,7 +33,10 @@ namespace VirtualPet
                 Console.WriteLine($"6. See {newPet.GetName()} health");
                 Console.WriteLine("7. Add another pet to shelter");
                 Console.WriteLine("8. See name and status of all pets");
-                Console.WriteLine("9. Exit virtual pet");
+                Console.WriteLine("9. Feed all pets");
+                Console.WriteLine("10. Take all pets to doctor");
+                Console.WriteLine("11. Play with all pets");
+                Console.WriteLine("12. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -85,7 +89,7 @@ namespace VirtualPet
                         }
                     case "8":
                         {
-                            List<Pet> listOfPets = petShelter.GetPetList();
+                            
                             foreach (Pet pet in listOfPets)
                             {
                                 Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
@@ -93,6 +97,25 @@ namespace VirtualPet
                             break;
                         }
                     case "9":
+                        {
+                            petShelter.FeedAllPets();
+                            Console.WriteLine("You've feed all pets");
+                            break;
+                        }
+                    case "10":
+                        {
+                            petShelter.AllPetsSeeDoctor();
+                            Console.WriteLine("You've taken all pets to the doc");
+                            break;
+                        }
+                    case "11":
+                        {
+                            petShelter.AllPetsPlay();
+                            Console.WriteLine("You've played with all pets");
+                            break;
+                        }
+
+                    case "12":
                         {
                             Console.WriteLine("Thanks for playing Virtual Pet");
                             continuePlayingWithPet = false;
