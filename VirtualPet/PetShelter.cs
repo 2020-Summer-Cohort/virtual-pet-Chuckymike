@@ -45,6 +45,13 @@ namespace VirtualPet
         {
             return listOfPets[petIndex]; 
         }
+        public void ShowAllPetStatus()
+        {
+            foreach(Pet pet in listOfPets)
+            {
+                Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
+            }
+        }
     }
 
 }

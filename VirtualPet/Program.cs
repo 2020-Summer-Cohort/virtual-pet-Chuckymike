@@ -23,6 +23,8 @@ namespace VirtualPet
             do
             {
                 newPet.Tick();
+                petShelter.ShowAllPetStatus();
+                
 
                 Console.WriteLine("\nWhat would you like to do?");
                 Console.WriteLine($"1. Feed {newPet.GetName()}");
@@ -40,6 +42,7 @@ namespace VirtualPet
                 Console.WriteLine("13. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
+                Console.Clear(); 
                 switch (userInput)
                 {
                     case "1":
@@ -90,11 +93,7 @@ namespace VirtualPet
                         }
                     case "8":
                         {
-                            
-                            foreach (Pet pet in listOfPets)
-                            {
-                                Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
-                            }   
+                            petShelter.ShowAllPetStatus();
                             break;
                         }
                     case "9":
