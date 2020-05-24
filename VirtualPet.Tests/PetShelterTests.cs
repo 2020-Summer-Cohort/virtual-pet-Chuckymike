@@ -90,6 +90,9 @@ namespace VirtualPet.Tests
         {
             testPetShelter.SelectPetFromShelter(testPet);
             testPetShelter.SelectPetFromShelter(testPet2);
+
+            Assert.NotNull(testPetShelter.listOfPets);
+
         }
 
     }

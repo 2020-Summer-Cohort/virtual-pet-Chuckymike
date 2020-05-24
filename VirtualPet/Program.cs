@@ -36,7 +36,8 @@ namespace VirtualPet
                 Console.WriteLine("9. Feed all pets");
                 Console.WriteLine("10. Take all pets to doctor");
                 Console.WriteLine("11. Play with all pets");
-                Console.WriteLine("12. Exit virtual pet");
+                Console.WriteLine("12. Select specific pet");
+                Console.WriteLine("13. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -114,8 +115,22 @@ namespace VirtualPet
                             Console.WriteLine("You've played with all pets");
                             break;
                         }
-
                     case "12":
+                        {
+                            int petLineNumber = 1;
+                            foreach (Pet pet in listOfPets)
+                            {
+                                Console.WriteLine($"{petLineNumber}. {pet.GetName()}");
+                                petLineNumber++;
+                            }
+                            Console.WriteLine("What pet do you want to select?");
+                            int selectNewPet = Convert.ToInt32(Console.ReadLine());
+                            newPet = petShelter.SelectPetFromShelter(selectNewPet - 1);
+                            break;
+
+                        }
+
+                    case "13":
                         {
                             Console.WriteLine("Thanks for playing Virtual Pet");
                             continuePlayingWithPet = false;
