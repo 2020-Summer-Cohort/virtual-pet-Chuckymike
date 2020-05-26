@@ -52,6 +52,10 @@ namespace VirtualPet
                 Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
             }
         }
+        public void AdoptPetFromShelter(Pet adoptedPet)
+        {
+             listOfPets.Remove(adoptedPet);
+        }
     }
 
 }
