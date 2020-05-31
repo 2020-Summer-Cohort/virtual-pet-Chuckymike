@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VirtualPet
 {
-    public class PetShelter
+    public class PetShelter : Pet
     {
         public List<Pet> listOfPets = new List<Pet>();
 
@@ -49,7 +49,7 @@ namespace VirtualPet
         {
             foreach(Pet pet in listOfPets)
             {
-                Console.WriteLine($"{pet.GetName()}, Health {pet.GetHealth()}, Hunger {pet.GetHunger()}, Boredom {pet.GetBoredom()}");
+                Console.WriteLine($"{pet.GetName()}|| {pet.GetSpecies()}|| Health {pet.GetHealth()}|| Hunger {pet.GetHunger()}|| Boredom {pet.GetBoredom()}");
             }
         }
         public void AdoptPetFromShelter(Pet adoptedPet)

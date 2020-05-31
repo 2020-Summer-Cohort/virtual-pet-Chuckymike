@@ -88,8 +88,8 @@ namespace VirtualPet.Tests
         [Fact]
         public void SelectPet_Should_Allow_User_To_Select_Pet()
         {
-            testPetShelter.SelectPetFromShelter(testPet);
-            testPetShelter.SelectPetFromShelter(testPet2);
+            testPetShelter.AddPetToShelter(testPet);
+            testPetShelter.SelectPetFromShelter(1);
 
             Assert.NotNull(testPetShelter.listOfPets);
 

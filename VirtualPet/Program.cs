@@ -10,7 +10,9 @@ namespace VirtualPet
         {
             Pet newPet = new Pet();
             PetShelter petShelter = new PetShelter();
+            RoboticPet roboticPet = new RoboticPet();
             List<Pet> listOfPets = petShelter.GetPetList();
+            
             
 
             Console.WriteLine("Hello! Welcome to Virtual Pets");
@@ -23,20 +25,23 @@ namespace VirtualPet
             do
             {
                 newPet.Tick();
-                petShelter.ShowAllPetStatus();
+                //petShelter.ShowAllPetStatus();
+                roboticPet.Tick();
+                roboticPet.ShowAllPetStatus();
+                
                 
 
                 Console.WriteLine("\nWhat would you like to do?");
                 Console.WriteLine($"1. Feed {newPet.GetName()}");
                 Console.WriteLine($"2. Play with {newPet.GetName()}");
                 Console.WriteLine($"3. Take {newPet.GetName()} to doctor");
-                Console.WriteLine($"4. See {newPet.GetName()} hunger");
-                Console.WriteLine($"5. See {newPet.GetName()} bordeom");
+                Console.WriteLine($"4. See {newPet.GetName()} battery life");
+                Console.WriteLine($"5. See {newPet.GetName()} oil level");
                 Console.WriteLine($"6. See {newPet.GetName()} health");
-                Console.WriteLine("7. Add another pet to shelter");
-                Console.WriteLine("8. See name and status of all pets");
-                Console.WriteLine("9. Feed all pets");
-                Console.WriteLine("10. Take all pets to doctor");
+                Console.WriteLine("7. Add pet");
+                Console.WriteLine("8. Add RoboPet");
+                Console.WriteLine("9. Feed all pets *doesn't apply to RoboPets*");
+                Console.WriteLine("10. Take all pets to doctor *doesn't apply to RoboPets*");
                 Console.WriteLine("11. Play with all pets");
                 Console.WriteLine("12. Select specific pet");
                 Console.WriteLine("13. Adopt pet");
@@ -68,14 +73,14 @@ namespace VirtualPet
                         }
                     case "4":
                         {
-                            int currentHunger = newPet.GetHunger();
-                            Console.WriteLine($"{newPet.GetName()} hunger is {currentHunger}");
+                            int currentBatteryLife = roboticPet.GetBatteryLife();
+                            Console.WriteLine($"{roboticPet.GetName()} battery life is {currentBatteryLife}");
                             break;
                         }
                     case "5":
                         {
-                            int currentBordom = newPet.GetBoredom();
-                            Console.WriteLine($"{newPet.GetName()} boredom is {currentBordom}");
+                            int currentOilLevel = roboticPet.GetOilLevel();
+                            Console.WriteLine($"{roboticPet.GetName()} boredom is {currentOilLevel}");
                             break;
                         }
                     case "6":
@@ -94,7 +99,10 @@ namespace VirtualPet
                         }
                     case "8":
                         {
-                            petShelter.ShowAllPetStatus();
+                            roboticPet = new RoboticPet();
+                            roboticPet.CreatePet();
+
+                            roboticPet.AddPetToShelter(roboticPet);
                             break;
                         }
                     case "9":
