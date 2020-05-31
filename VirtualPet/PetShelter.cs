@@ -69,7 +69,8 @@ namespace VirtualPet
         }
         public void AdoptPetFromShelter(Pet adoptedPet)
         {
-             listOfPets.Remove(adoptedPet);
+            Console.WriteLine($"{adoptedPet.Name} has been adopted"); 
+            listOfPets.Remove(adoptedPet);
         }
         public void ShowPetNames()
         {

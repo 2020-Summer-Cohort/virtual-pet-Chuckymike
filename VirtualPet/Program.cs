@@ -13,8 +13,6 @@ namespace VirtualPet
             RoboticPet roboticPet = new RoboticPet();
             List<Pet> listOfPets = petShelter.GetPetList();
             
-            
-
             Console.WriteLine("Hello! Welcome to Virtual Pets");
             newPet.CreatePet();
 
@@ -81,13 +79,11 @@ namespace VirtualPet
                     case "6":
                         {
                             petShelter.FeedAllPets();
-                            Console.WriteLine("You've feed all pets");
                             break;
                         }
                     case "7":
                         {
                             petShelter.AllPetsSeeDoctor();
-                            Console.WriteLine("You've taken all pets to the doc");
                             break;
                         }
                     case "8":
