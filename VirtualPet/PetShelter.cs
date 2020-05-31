@@ -42,6 +42,13 @@ namespace VirtualPet
                 pet.Play();
             }
         }
+        public void AllPetsTick()
+        {
+            foreach (Pet pet in listOfPets)
+            {
+                pet.Tick();
+            }
+        }
         public Pet SelectPetFromShelter(int petIndex)
         {
             return listOfPets[petIndex]; 

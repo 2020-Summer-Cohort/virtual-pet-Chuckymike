@@ -24,24 +24,21 @@ namespace VirtualPet
             bool continuePlayingWithPet = true;
             do
             {
-                newPet.Tick();
+                petShelter.AllPetsTick();
                 petShelter.ShowAllPetStatus();
                 
                 Console.WriteLine("\nWhat would you like to do?");
                 Console.WriteLine($"1. Feed {newPet.GetName()}");
                 Console.WriteLine($"2. Play with {newPet.GetName()}");
                 Console.WriteLine($"3. Take {newPet.GetName()} to doctor or for maintenance");
-                Console.WriteLine($"4. See {newPet.GetName()} battery life");
-                Console.WriteLine($"5. See {newPet.GetName()} oil level");
-                Console.WriteLine($"6. See {newPet.GetName()} health");
-                Console.WriteLine("7. Add pet");
-                Console.WriteLine("8. Add RoboPet");
-                Console.WriteLine("9. Feed all pets *doesn't apply to RoboPets*");
-                Console.WriteLine("10. Take all pets to doctor *doesn't apply to RoboPets*");
-                Console.WriteLine("11. Play with all pets");
-                Console.WriteLine("12. Select specific pet");
-                Console.WriteLine("13. Adopt pet");
-                Console.WriteLine("14. Exit virtual pet");
+                Console.WriteLine("4. Add pet");
+                Console.WriteLine("5. Add RoboPet");
+                Console.WriteLine("6. Feed all pets");
+                Console.WriteLine("7. Take all pets to doctor or for maintenance");
+                Console.WriteLine("8. Play with all pets");
+                Console.WriteLine("9. Select specific pet");
+                Console.WriteLine("10. Adopt pet");
+                Console.WriteLine("11. Exit virtual pet");
 
                 string userInput = Console.ReadLine();
                 Console.Clear(); 
@@ -67,31 +64,13 @@ namespace VirtualPet
                         }
                     case "4":
                         {
-                            int currentBatteryLife = roboticPet.GetBatteryLife();
-                            Console.WriteLine($"{roboticPet.GetName()} battery life is {currentBatteryLife}");
-                            break;
-                        }
-                    case "5":
-                        {
-                            int currentOilLevel = roboticPet.GetOilLevel();
-                            Console.WriteLine($"{roboticPet.GetName()} boredom is {currentOilLevel}");
-                            break;
-                        }
-                    case "6":
-                        {
-                            int currentHealth = newPet.GetHealth();
-                            Console.WriteLine($"{newPet.GetName()} health is {currentHealth}");
-                            break;
-                        }
-                    case "7":
-                        {
                             newPet = new Pet();
                             newPet.CreatePet();
 
                             petShelter.AddPetToShelter(newPet);
                             break;
                         }
-                    case "8":
+                    case "5":
                         {
                             roboticPet = new RoboticPet();
                             roboticPet.CreatePet();
@@ -99,25 +78,25 @@ namespace VirtualPet
                             petShelter.AddPetToShelter(roboticPet);
                             break;
                         }
-                    case "9":
+                    case "6":
                         {
                             petShelter.FeedAllPets();
                             Console.WriteLine("You've feed all pets");
                             break;
                         }
-                    case "10":
+                    case "7":
                         {
                             petShelter.AllPetsSeeDoctor();
                             Console.WriteLine("You've taken all pets to the doc");
                             break;
                         }
-                    case "11":
+                    case "8":
                         {
                             petShelter.AllPetsPlay();
                             Console.WriteLine("You've played with all pets");
                             break;
                         }
-                    case "12":
+                    case "9":
                         {
                             petShelter.ShowPetNames();
                             Console.WriteLine("What pet do you want to select?");
@@ -126,7 +105,7 @@ namespace VirtualPet
                             break;
 
                         }
-                    case "13":
+                    case "10":
                         {
                             petShelter.ShowPetNames();
                             Console.WriteLine("What pet do you want to adopt?");
@@ -136,7 +115,7 @@ namespace VirtualPet
                             break;
                         }
 
-                    case "14":
+                    case "11":
                         {
                             Console.WriteLine("Thanks for playing Virtual Pet");
                             continuePlayingWithPet = false;
