@@ -54,18 +54,19 @@ namespace VirtualPet
             return Health;
         }
 
-        public void Feed()
+        public virtual void Feed()
         {
+            Console.WriteLine($"You've fed {Name}");
             Hunger -= 40;    
         }
 
-        public void SeeDoctor()
+        public virtual void CareForPet()
         {
-
+            Console.WriteLine($"You took {Name} to the vet");
             Health += 30;
         }
 
-        public void Play()
+        public virtual void Play()
         {
              Hunger += 10;
              Boredom -= 20;
@@ -74,13 +75,13 @@ namespace VirtualPet
             
         }
 
-        public void Tick()
+        public virtual void Tick()
         {
             Hunger += 5;
             Boredom += 5;
             Health -= 5;
         }
-        public void CreatePet()
+        public virtual void CreatePet()
         {
             Console.WriteLine("\nWhat would you like to name it?");
             string petName = Console.ReadLine();

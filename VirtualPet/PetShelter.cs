@@ -5,9 +5,10 @@ using System.Text;
 
 namespace VirtualPet
 {
-    public class PetShelter : Pet
+    public class PetShelter
     {
         public List<Pet> listOfPets = new List<Pet>();
+        //public List<RoboticPet> listOfPets = new List<RoboticPet>();
 
         public void AddPetToShelter(Pet pet)
         {
@@ -31,7 +32,7 @@ namespace VirtualPet
         {
             foreach (Pet pet in listOfPets)
             {
-                pet.SeeDoctor();
+                pet.CareForPet();
             }
         }
         public void AllPetsPlay()
@@ -49,12 +50,28 @@ namespace VirtualPet
         {
             foreach(Pet pet in listOfPets)
             {
-                Console.WriteLine($"{pet.GetName()}|| {pet.GetSpecies()}|| Health {pet.GetHealth()}|| Hunger {pet.GetHunger()}|| Boredom {pet.GetBoredom()}");
+                if (pet is RoboticPet) 
+                {
+                    RoboticPet roboticPet = (RoboticPet)pet;
+                    Console.WriteLine($"{roboticPet.Name}|| {roboticPet.Species}|| Oil Level {roboticPet.GetOilLevel()}|| Battery Life {roboticPet.GetBatteryLife()}");
+                }
+                else Console.WriteLine($"{pet.GetName()}|| {pet.GetSpecies()}|| Health {pet.GetHealth()}|| Hunger {pet.GetHunger()}|| Boredom {pet.GetBoredom()}");
             }
+            
+            
         }
         public void AdoptPetFromShelter(Pet adoptedPet)
         {
              listOfPets.Remove(adoptedPet);
+        }
+        public void ShowPetNames()
+        {
+            int petLineNumber = 1;
+            foreach (Pet pet in listOfPets)
+            {
+                Console.WriteLine($"{petLineNumber}. {pet.GetName()} the {pet.GetSpecies()}");
+                petLineNumber++;
+            }
         }
     }
 

@@ -4,12 +4,8 @@ using System.Text;
 
 namespace VirtualPet
 {
-    public class RoboticPet : PetShelter
-    {
-        public new List<RoboticPet> listOfPets = new List<RoboticPet>();
-
-        public new string Name { get; set; }
-        public new string Species { get; set; }
+    public class RoboticPet : Pet
+    {   
         public int BatteryLife { get; set; }
         public int OilLevel { get; set; }
 
@@ -19,14 +15,6 @@ namespace VirtualPet
             OilLevel = 60;
 
         }
-        public new void SetName(string name)
-        {
-            Name = name;
-        }
-        public new void SetSpecies(string species)
-        {
-            Species = species;
-        }
         public int GetBatteryLife()
         {
             return BatteryLife;
@@ -35,27 +23,27 @@ namespace VirtualPet
         {
             return OilLevel;
         }
-        public new void Play()
+        public override void Play()
         {
             OilLevel -= 20;
             BatteryLife -= 20;
-
         }
-        public new void Tick()
+        public override void Feed()
+        {
+            Console.WriteLine("You don't need to feed a Robo pet");
+        }
+        public override void Tick()
         {
             BatteryLife -= 5;
             OilLevel -= 5;
         }
-        public void TakeForMaintenance()
+        public override void CareForPet()
         {
+            Console.WriteLine($"You've taken {Name} for maintenance");
             BatteryLife += 50;
             OilLevel += 50;
         }
-        public void SellRoboPet(Pet adoptedPet)
-        {
-            base.listOfPets.Remove(adoptedPet);
-        }
-        public new void CreatePet()
+        public override void CreatePet()
         {
             Console.WriteLine("\nWhat would you like to name it?");
             string petName = Console.ReadLine();
@@ -67,13 +55,7 @@ namespace VirtualPet
 
             SetSpecies(petSpecies);
         }
-        public void ShowAllPetStatus(RoboticPet robotic)
-        {
-            foreach (RoboticPet roboticPet in base.listOfPets)
-            {
-                Console.WriteLine($"{robotic.Name}|| {robotic.Species}|| Oil Level {robotic.GetOilLevel()}|| Battery Life {robotic.GetBatteryLife()}");
-            }
-        }
+    
         
         
     }

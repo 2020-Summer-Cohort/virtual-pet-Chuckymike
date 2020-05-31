@@ -25,16 +25,12 @@ namespace VirtualPet
             do
             {
                 newPet.Tick();
-                //petShelter.ShowAllPetStatus();
-                roboticPet.Tick();
-                roboticPet.ShowAllPetStatus();
+                petShelter.ShowAllPetStatus();
                 
-                
-
                 Console.WriteLine("\nWhat would you like to do?");
                 Console.WriteLine($"1. Feed {newPet.GetName()}");
                 Console.WriteLine($"2. Play with {newPet.GetName()}");
-                Console.WriteLine($"3. Take {newPet.GetName()} to doctor");
+                Console.WriteLine($"3. Take {newPet.GetName()} to doctor or for maintenance");
                 Console.WriteLine($"4. See {newPet.GetName()} battery life");
                 Console.WriteLine($"5. See {newPet.GetName()} oil level");
                 Console.WriteLine($"6. See {newPet.GetName()} health");
@@ -54,7 +50,6 @@ namespace VirtualPet
                     case "1":
                         {
                             newPet.Feed();
-                            Console.WriteLine("You've fed your Pet");
                             break;
 
                         }
@@ -66,8 +61,7 @@ namespace VirtualPet
                         }
                     case "3":
                         {
-                            newPet.SeeDoctor();
-                            Console.WriteLine("You've taken your pet to the Doctor");
+                            newPet.CareForPet();
                             break;
 
                         }
@@ -102,7 +96,7 @@ namespace VirtualPet
                             roboticPet = new RoboticPet();
                             roboticPet.CreatePet();
 
-                            roboticPet.AddPetToShelter(roboticPet);
+                            petShelter.AddPetToShelter(roboticPet);
                             break;
                         }
                     case "9":
@@ -125,12 +119,7 @@ namespace VirtualPet
                         }
                     case "12":
                         {
-                            int petLineNumber = 1;
-                            foreach (Pet pet in listOfPets)
-                            {
-                                Console.WriteLine($"{petLineNumber}. {pet.GetName()}");
-                                petLineNumber++;
-                            }
+                            petShelter.ShowPetNames();
                             Console.WriteLine("What pet do you want to select?");
                             int selectNewPet = Convert.ToInt32(Console.ReadLine());
                             newPet = petShelter.SelectPetFromShelter(selectNewPet - 1);
@@ -139,12 +128,7 @@ namespace VirtualPet
                         }
                     case "13":
                         {
-                            int petLineNumber = 1;
-                            foreach (Pet pet in listOfPets)
-                            {
-                                Console.WriteLine($"{petLineNumber}. {pet.GetName()}");
-                                petLineNumber++;
-                            }
+                            petShelter.ShowPetNames();
                             Console.WriteLine("What pet do you want to adopt?");
                             int selectNewPet = Convert.ToInt32(Console.ReadLine());
                             newPet = petShelter.SelectPetFromShelter(selectNewPet - 1);
