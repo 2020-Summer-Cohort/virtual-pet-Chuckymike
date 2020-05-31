@@ -12,8 +12,10 @@ namespace VirtualPet
             PetShelter petShelter = new PetShelter();
             RoboticPet roboticPet = new RoboticPet();
             List<Pet> listOfPets = petShelter.GetPetList();
-            
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Hello! Welcome to Virtual Pets");
+            Console.ResetColor();
             newPet.CreatePet();
 
             petShelter.AddPetToShelter(newPet);
@@ -24,8 +26,10 @@ namespace VirtualPet
             {
                 petShelter.AllPetsTick();
                 petShelter.ShowAllPetStatus();
-                
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\nWhat would you like to do?");
+                Console.ResetColor();
                 Console.WriteLine($"1. Feed {newPet.GetName()}");
                 Console.WriteLine($"2. Play with {newPet.GetName()}");
                 Console.WriteLine($"3. Take {newPet.GetName()} to doctor or for maintenance");
@@ -89,7 +93,6 @@ namespace VirtualPet
                     case "8":
                         {
                             petShelter.AllPetsPlay();
-                            Console.WriteLine("You've played with all pets");
                             break;
                         }
                     case "9":

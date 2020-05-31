@@ -5,14 +5,15 @@ using System.Text;
 namespace VirtualPet
 {
     public class RoboticPet : Pet
-    {   
+    {
+        Random random = new Random();
         public int BatteryLife { get; set; }
         public int OilLevel { get; set; }
 
         public RoboticPet()
         {
-            BatteryLife = 100;
-            OilLevel = 60;
+            BatteryLife = random.Next(0, 101);
+            OilLevel = random.Next(0, 101);
 
         }
         public int GetBatteryLife()
@@ -27,6 +28,14 @@ namespace VirtualPet
         {
             OilLevel -= 20;
             BatteryLife -= 20;
+            if (OilLevel <= 0)
+            {
+                OilLevel = 0;
+            }
+            if (BatteryLife <= 0)
+            {
+                OilLevel = 0;
+            }
         }
         public override void Feed()
         {
@@ -36,12 +45,28 @@ namespace VirtualPet
         {
             BatteryLife -= 5;
             OilLevel -= 5;
+            if (BatteryLife <= 0)
+            {
+                BatteryLife = 0;
+            }
+            if (OilLevel <= 0)
+            {
+                OilLevel = 0;
+            }
         }
         public override void CareForPet()
         {
             Console.WriteLine($"You've taken {Name} for maintenance");
             BatteryLife += 50;
             OilLevel += 50;
+            if (BatteryLife >= 100)
+            {
+                BatteryLife = 100;
+            }
+            if (OilLevel >= 100)
+            {
+                OilLevel = 100;
+            }
         }
         public override void CreatePet()
         {

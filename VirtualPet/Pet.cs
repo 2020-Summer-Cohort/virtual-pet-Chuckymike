@@ -7,6 +7,8 @@ namespace VirtualPet
 {
     public class Pet
     {
+        Random random = new Random();
+
         public string Name { get; set; }
         public string Species { get; set; }
         public int Hunger { get; set;}
@@ -15,9 +17,9 @@ namespace VirtualPet
 
         public Pet()
         {
-            Hunger = 50;
-            Boredom = 60;
-            Health = 30;
+            Hunger = random.Next(0,101);
+            Boredom = random.Next(0,101);
+            Health = random.Next(0,101);
 
         }
         public void SetName(string name)
@@ -57,13 +59,21 @@ namespace VirtualPet
         public virtual void Feed()
         {
             Console.WriteLine($"You've fed {Name}");
-            Hunger -= 40;    
+            Hunger -= 40;
+            if(Hunger <= 0)
+            {
+                Hunger = 0;
+            }
         }
 
         public virtual void CareForPet()
         {
             Console.WriteLine($"You took {Name} to the vet");
             Health += 30;
+            if (Health >= 100)
+            {
+                Health = 100;
+            }
         }
 
         public virtual void Play()
@@ -71,7 +81,18 @@ namespace VirtualPet
              Hunger += 10;
              Boredom -= 20;
              Health += 10;
-
+            if(Hunger >= 100)
+            {
+                Hunger = 100;
+            }
+            if (Boredom <= 0)
+            {
+                Boredom = 0;
+            }
+            if (Health >= 100)
+            {
+                Health = 100;
+            }
             
         }
 
@@ -80,6 +101,18 @@ namespace VirtualPet
             Hunger += 5;
             Boredom += 5;
             Health -= 5;
+            if (Hunger >= 100)
+            {
+                Hunger = 100;
+            }
+            if (Boredom >= 100)
+            {
+                Boredom = 100;
+            }
+            if(Health <= 0)
+            {
+                Health = 0;
+            }
         }
         public virtual void CreatePet()
         {
