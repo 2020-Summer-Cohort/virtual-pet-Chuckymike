@@ -17,9 +17,9 @@ namespace VirtualPet
 
         public Pet()
         {
-            Hunger = random.Next(0,101);
-            Boredom = random.Next(0,101);
-            Health = random.Next(0,101);
+            Hunger = 50;
+            Boredom = 60;
+            Health = 30;
 
         }
         public void SetName(string name)

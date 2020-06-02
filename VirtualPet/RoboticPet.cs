@@ -12,8 +12,8 @@ namespace VirtualPet
 
         public RoboticPet()
         {
-            BatteryLife = random.Next(0, 101);
-            OilLevel = random.Next(0, 101);
+            BatteryLife = 40;
+            OilLevel = 50;
 
         }
         public int GetBatteryLife()
